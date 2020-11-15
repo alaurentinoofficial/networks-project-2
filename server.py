@@ -2,8 +2,14 @@ import json
 from threading import Thread
 from socket import socket, AF_INET, SOCK_DGRAM
 
+def validate_methods(method):
+    method in ("GET", "ADD", "UPDATE", "DELETE")
+
 class Request:
     def __init__(self, route, body, method, connection):
+        if validate_methods(method):
+            raise ValueError("Method is invalid.\nValid options: GET, ADD, UPDATE, DELTE")
+
         self.route = route
         self.body = body
         self.method = method
@@ -14,7 +20,7 @@ class Route:
     def __init__(self, route, callback, *methods):
         self.route = route
         self.callback = callback
-        self.methods = [m.upper() for m in methods]
+        self.methods = [m.upper() for m in methods if validate_methods(m)]
 
 class Router:
     def __init__(self, routes = []):
@@ -50,7 +56,7 @@ class ServerUDP:
         try:
             payload = json.loads(data)
             request = Request(
-                route=payload["route"]
+                route=str(payload["route"])
                 , body=payload["body"]
                 , method=payload["method"].upper()
                 , connection=client_conn
