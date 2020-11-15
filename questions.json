@@ -1,0 +1,68 @@
+[
+    {
+        "text": "Qual é o elemento ... ?",
+        "correct_id": "a",
+        "alternatives": [
+            {
+                "id": "a",
+                "text": "Alternativa A"
+            },
+            {
+                "id": "b",
+                "text": "Alternativa B"
+            },
+            {
+                "id": "c",
+                "text": "Alternativa B"
+            },
+            {
+                "id": "d",
+                "text": "Alternativa D"
+            }
+        ] 
+    },
+    {
+        "text": "Qual é o pior ... ?",
+        "correct_id": "b",
+        "alternatives": [
+            {
+                "id": "a",
+                "text": "Alternativa A"
+            },
+            {
+                "id": "b",
+                "text": "Alternativa B"
+            },
+            {
+                "id": "c",
+                "text": "Alternativa B"
+            },
+            {
+                "id": "d",
+                "text": "Alternativa D"
+            }
+        ] 
+    },
+    {
+        "text": "Qual é a melhor matéria do CIN ?",
+        "correct_id": "c",
+        "alternatives": [
+            {
+                "id": "a",
+                "text": "Alternativa A"
+            },
+            {
+                "id": "b",
+                "text": "Alternativa B"
+            },
+            {
+                "id": "c",
+                "text": "Alternativa B"
+            },
+            {
+                "id": "d",
+                "text": "Alternativa D"
+            }
+        ] 
+    }
+]
