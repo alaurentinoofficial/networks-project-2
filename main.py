@@ -27,7 +27,7 @@ def print_request(request):
 
 if __name__ == "__main__":
     router = Router()
-    router.add(Route("/register", print_request, "POST")) # {"route": "/register", "body": null, "method": "POST"}
+    router.add("/register", print_request, "ADD") # {"route": "/register", "body": null, "method": "ADD"}
 
     ServerUDP('localhost', 8080, router).serve()
 

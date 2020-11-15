@@ -3,12 +3,12 @@ from threading import Thread
 from socket import socket, AF_INET, SOCK_DGRAM
 
 def validate_methods(method):
-    method in ("GET", "ADD", "UPDATE", "DELETE")
+    return method in ["GET", "ADD", "UPDATE", "DELETE"]
 
 class Request:
     def __init__(self, route, body, method, connection):
-        if validate_methods(method):
-            raise ValueError("Method is invalid.\nValid options: GET, ADD, UPDATE, DELTE")
+        if not validate_methods(method):
+            raise ValueError("Method is invalid.\nValid options: GET, ADD, UPDATE, DELETE")
 
         self.route = route
         self.body = body
@@ -26,13 +26,11 @@ class Router:
     def __init__(self, routes = []):
         self.routes = routes
     
-    def add(self, route):
-        self.routes.append(route)
+    def add(self, route, callback, *methods):
+        self.routes.append(Route(route, callback, *methods))
 
     def resolve(self, request: Request):
         for route in self.routes:
-            print(route.route == request.route, route.route, request.route)
-            print(request.method in route.methods, request.method, route.methods)
             if route.route == request.route and request.method in route.methods:
                 return route.callback(request)
         
@@ -52,7 +50,6 @@ class ServerUDP:
 
     @staticmethod
     def open_connection(socket, client_conn, data, router):
-        print(client_conn, data, router)
         try:
             payload = json.loads(data)
             request = Request(
