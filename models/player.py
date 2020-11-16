@@ -14,3 +14,15 @@ class Player():
     
     def __repr__(self):
         return f"Player(ip={self.ip}, port={self.port}, points={self.point})"
+
+    def __address__(self):
+        return f"{self.ip}:{self.port}"
+
+    def __eq__(self, other):
+        if type(other) is Player:
+            print(self.__address__(), other.__address__())
+            return self.__address__() == other.__address__()
+        elif type(other) is str:
+            return self.__address__() == other
+        else:
+            return False

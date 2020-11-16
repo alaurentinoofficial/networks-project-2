@@ -8,10 +8,14 @@ class GameController():
         self.db = db
     
     def register(self, request: Request):
-        # Create new player
         ip, port = request.connection
         p = Player(ip, port)
 
+        if len(self.db["players"]) == 5:
+            return Response(code=codes.SUCCESS, body="The game is full, await some minutes")
+        elif (p in self.db["players"]):
+            return Response(code=codes.SUCCESS, body="you're already registred")
+        
         # Add into a virtual database
         self.db["players"].append(p)
 
