@@ -11,10 +11,11 @@ def await_reponse(socket):
     socket.settimeout(1) 
 
     while running:
-        print(".")
         try:
             data, client_conn = socket.recvfrom(2048)
+            print("")
             print(data)
+            print("")
         except timeout: 
             continue
         except (KeyboardInterrupt, SystemExit):

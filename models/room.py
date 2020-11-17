@@ -18,9 +18,8 @@ class Answer():
     answer: str
 
     def __init__(self, id_player: str = None, answer: str = None):
-        self.text = text
-        self.correct_alternative = correct_alternative
-        self.alternative = alternative  
+        self.answer = answer
+        self.alternative = id_player  
 
 class Question():
     text: str

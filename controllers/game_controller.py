@@ -31,7 +31,8 @@ class GameController():
         if type(request.body) is {}:
             value = request.body.get("answer")
 
-            if value != None and p in rooms.players:
-                    if value == question.correct_alternative:
-                        p.points += 1
-                    question.answers.append(Answer(value, id_player=f"{ip}:{port}", game_round=i_round))
+            if value != None and p in self.room.players:
+                if value == question.correct_alternative:
+                    p.points += 1
+                
+                question.answers.append(Answer(value, id_player=f"{ip}:{port}", game_round=i_round))

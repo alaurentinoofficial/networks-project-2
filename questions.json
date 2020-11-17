@@ -23,7 +23,7 @@
     },
     {
         "text": "Qual é o pior ... ?",
-        "correct_code": "b",
+        "correct_code": "a",
         "alternatives": [
             {
                 "code": "a",
@@ -45,7 +45,7 @@
     },
     {
         "text": "Qual é a melhor matéria do CIN ?",
-        "correct_code": "c",
+        "correct_code": "a",
         "alternatives": [
             {
                 "code": "a",
