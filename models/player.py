@@ -20,7 +20,6 @@ class Player():
 
     def __eq__(self, other):
         if type(other) is Player:
-            print(self.__address__(), other.__address__())
             return self.__address__() == other.__address__()
         elif type(other) is str:
             return self.__address__() == other

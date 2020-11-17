@@ -1,66 +1,66 @@
 [
     {
         "text": "Qual é o elemento ... ?",
-        "correct_id": "a",
+        "correct_code": "a",
         "alternatives": [
             {
-                "id": "a",
+                "code": "a",
                 "text": "Alternativa A"
             },
             {
-                "id": "b",
+                "code": "b",
                 "text": "Alternativa B"
             },
             {
-                "id": "c",
+                "code": "c",
                 "text": "Alternativa B"
             },
             {
-                "id": "d",
+                "code": "d",
                 "text": "Alternativa D"
             }
         ] 
     },
     {
         "text": "Qual é o pior ... ?",
-        "correct_id": "b",
+        "correct_code": "b",
         "alternatives": [
             {
-                "id": "a",
+                "code": "a",
                 "text": "Alternativa A"
             },
             {
-                "id": "b",
+                "code": "b",
                 "text": "Alternativa B"
             },
             {
-                "id": "c",
+                "code": "c",
                 "text": "Alternativa B"
             },
             {
-                "id": "d",
+                "code": "d",
                 "text": "Alternativa D"
             }
         ] 
     },
     {
         "text": "Qual é a melhor matéria do CIN ?",
-        "correct_id": "c",
+        "correct_code": "c",
         "alternatives": [
             {
-                "id": "a",
+                "code": "a",
                 "text": "Alternativa A"
             },
             {
-                "id": "b",
+                "code": "b",
                 "text": "Alternativa B"
             },
             {
-                "id": "c",
+                "code": "c",
                 "text": "Alternativa B"
             },
             {
-                "id": "d",
+                "code": "d",
                 "text": "Alternativa D"
             }
         ] 
