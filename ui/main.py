@@ -21,13 +21,19 @@ class Ui_MainWindow(object):
 "}")
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(10, 180, 631, 71))
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(10, 440, 631, 71))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.replay = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        self.replay.setEnabled(False)
+        self.replay.setEnabled(True)
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
+        self.replay.setFont(font)
         self.replay.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.replay.setStyleSheet("QPushButton {\n"
 "    background-color: rgb(15, 151, 255);\n"
@@ -48,13 +54,19 @@ class Ui_MainWindow(object):
 "}\n"
 "QPushButton:disabled {\n"
 "    background-color: #000;\n"
-"    border-color: #111;\n"
+"    border-color: #000;\n"
 "    color: #000;\n"
 "}")
         self.replay.setObjectName("replay")
         self.horizontalLayout.addWidget(self.replay)
         self.exit = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        self.exit.setEnabled(False)
+        self.exit.setEnabled(True)
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
+        self.exit.setFont(font)
         self.exit.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.exit.setStyleSheet("QPushButton {\n"
 "    background-color: rgb(255, 114, 14);\n"
@@ -75,7 +87,7 @@ class Ui_MainWindow(object):
 "}\n"
 "QPushButton:disabled {\n"
 "    background-color: #000;\n"
-"    border-color: #111;\n"
+"    border-color: #000;\n"
 "    color: #000;\n"
 "}")
         self.exit.setObjectName("exit")
@@ -87,22 +99,29 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.label = QtWidgets.QLabel(self.layoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        self.label.setFont(font)
         self.label.setStyleSheet("QLabel {\n"
 "    color: #fff;\n"
 "    font-size: 16px;\n"
 "}")
-        self.label.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
+        self.label.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
         self.label.setWordWrap(True)
         self.label.setObjectName("label")
         self.horizontalLayout_2.addWidget(self.label)
         self.layoutWidget1 = QtWidgets.QWidget(self.centralwidget)
-        self.layoutWidget1.setGeometry(QtCore.QRect(10, 250, 631, 261))
+        self.layoutWidget1.setGeometry(QtCore.QRect(10, 180, 631, 261))
         self.layoutWidget1.setObjectName("layoutWidget1")
         self.gridLayout = QtWidgets.QGridLayout(self.layoutWidget1)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setObjectName("gridLayout")
         self.button_h = QtWidgets.QPushButton(self.layoutWidget1)
         self.button_h.setEnabled(True)
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        self.button_h.setFont(font)
         self.button_h.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.button_h.setStyleSheet("QPushButton {\n"
 "    background-color: #555;\n"
@@ -117,13 +136,16 @@ class Ui_MainWindow(object):
 "}\n"
 "QPushButton:disabled {\n"
 "    background-color: #000;\n"
-"    border-color: #111;\n"
+"    border-color: #000;\n"
 "    color: #000;\n"
 "}")
         self.button_h.setObjectName("button_h")
         self.gridLayout.addWidget(self.button_h, 5, 1, 1, 1)
         self.button_f = QtWidgets.QPushButton(self.layoutWidget1)
         self.button_f.setEnabled(True)
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        self.button_f.setFont(font)
         self.button_f.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.button_f.setStyleSheet("QPushButton {\n"
 "    background-color: #555;\n"
@@ -138,13 +160,16 @@ class Ui_MainWindow(object):
 "}\n"
 "QPushButton:disabled {\n"
 "    background-color: #000;\n"
-"    border-color: #111;\n"
+"    border-color: #000;\n"
 "    color: #000;\n"
 "}")
         self.button_f.setObjectName("button_f")
         self.gridLayout.addWidget(self.button_f, 4, 1, 1, 1)
         self.button_b = QtWidgets.QPushButton(self.layoutWidget1)
         self.button_b.setEnabled(True)
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        self.button_b.setFont(font)
         self.button_b.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.button_b.setStyleSheet("QPushButton {\n"
 "    background-color: #555;\n"
@@ -159,7 +184,7 @@ class Ui_MainWindow(object):
 "}\n"
 "QPushButton:disabled {\n"
 "    background-color: #000;\n"
-"    border-color: #111;\n"
+"    border-color: #000;\n"
 "    color: #000;\n"
 "}")
         self.button_b.setCheckable(False)
@@ -167,6 +192,9 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.button_b, 0, 1, 1, 1)
         self.button_a = QtWidgets.QPushButton(self.layoutWidget1)
         self.button_a.setEnabled(True)
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        self.button_a.setFont(font)
         self.button_a.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.button_a.setStyleSheet("QPushButton {\n"
 "    background-color: #555;\n"
@@ -181,13 +209,16 @@ class Ui_MainWindow(object):
 "}\n"
 "QPushButton:disabled {\n"
 "    background-color: #000;\n"
-"    border-color: #111;\n"
+"    border-color: #000;\n"
 "    color: #000;\n"
 "}")
         self.button_a.setObjectName("button_a")
         self.gridLayout.addWidget(self.button_a, 0, 0, 1, 1)
         self.button_d = QtWidgets.QPushButton(self.layoutWidget1)
         self.button_d.setEnabled(True)
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        self.button_d.setFont(font)
         self.button_d.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.button_d.setStyleSheet("QPushButton {\n"
 "    background-color: #555;\n"
@@ -202,13 +233,16 @@ class Ui_MainWindow(object):
 "}\n"
 "QPushButton:disabled {\n"
 "    background-color: #000;\n"
-"    border-color: #111;\n"
+"    border-color: #000;\n"
 "    color: #000;\n"
 "}")
         self.button_d.setObjectName("button_d")
         self.gridLayout.addWidget(self.button_d, 3, 1, 1, 1)
         self.button_g = QtWidgets.QPushButton(self.layoutWidget1)
         self.button_g.setEnabled(True)
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        self.button_g.setFont(font)
         self.button_g.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.button_g.setStyleSheet("QPushButton {\n"
 "    background-color: #555;\n"
@@ -223,13 +257,16 @@ class Ui_MainWindow(object):
 "}\n"
 "QPushButton:disabled {\n"
 "    background-color: #000;\n"
-"    border-color: #111;\n"
+"    border-color: #000;\n"
 "    color: #000;\n"
 "}")
         self.button_g.setObjectName("button_g")
         self.gridLayout.addWidget(self.button_g, 5, 0, 1, 1)
         self.button_c = QtWidgets.QPushButton(self.layoutWidget1)
         self.button_c.setEnabled(True)
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        self.button_c.setFont(font)
         self.button_c.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.button_c.setStyleSheet("QPushButton {\n"
 "    background-color: #555;\n"
@@ -244,13 +281,16 @@ class Ui_MainWindow(object):
 "}\n"
 "QPushButton:disabled {\n"
 "    background-color: #000;\n"
-"    border-color: #111;\n"
+"    border-color: #000;\n"
 "    color: #000;\n"
 "}")
         self.button_c.setObjectName("button_c")
         self.gridLayout.addWidget(self.button_c, 3, 0, 1, 1)
         self.button_e = QtWidgets.QPushButton(self.layoutWidget1)
         self.button_e.setEnabled(True)
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        self.button_e.setFont(font)
         self.button_e.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.button_e.setStyleSheet("QPushButton {\n"
 "    background-color: #555;\n"
@@ -265,7 +305,7 @@ class Ui_MainWindow(object):
 "}\n"
 "QPushButton:disabled {\n"
 "    background-color: #000;\n"
-"    border-color: #111;\n"
+"    border-color: #000;\n"
 "    color: #000;\n"
 "}")
         self.button_e.setObjectName("button_e")
@@ -280,7 +320,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.replay.setText(_translate("MainWindow", "Replay"))
         self.exit.setText(_translate("MainWindow", "Exit"))
-        self.label.setText(_translate("MainWindow", "TextLabel"))
+        self.label.setText(_translate("MainWindow", "This is an exemple of a questions... is it?"))
         self.button_h.setText(_translate("MainWindow", "PushButton"))
         self.button_f.setText(_translate("MainWindow", "PushButton"))
         self.button_b.setText(_translate("MainWindow", "PushButton"))

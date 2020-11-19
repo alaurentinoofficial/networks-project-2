@@ -23,7 +23,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>180</y>
+      <y>440</y>
       <width>631</width>
       <height>71</height>
      </rect>
@@ -32,7 +32,15 @@
      <item>
       <widget class="QPushButton" name="replay">
        <property name="enabled">
-        <bool>false</bool>
+        <bool>true</bool>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>-1</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
@@ -57,7 +65,7 @@ QPushButton:pressed {
 }
 QPushButton:disabled {
     background-color: #000;
-    border-color: #111;
+    border-color: #000;
 	color: #000;
 }</string>
        </property>
@@ -69,7 +77,15 @@ QPushButton:disabled {
      <item>
       <widget class="QPushButton" name="exit">
        <property name="enabled">
-        <bool>false</bool>
+        <bool>true</bool>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>-1</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
@@ -94,7 +110,7 @@ QPushButton:pressed {
 }
 QPushButton:disabled {
     background-color: #000;
-    border-color: #111;
+    border-color: #000;
 	color: #000;
 }</string>
        </property>
@@ -117,6 +133,12 @@ QPushButton:disabled {
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>-1</pointsize>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QLabel {
 	color: #fff;
@@ -124,10 +146,10 @@ QPushButton:disabled {
 }</string>
        </property>
        <property name="text">
-        <string>TextLabel</string>
+        <string>This is an exemple of a questions... is it?</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        <set>Qt::AlignHCenter|Qt::AlignTop</set>
        </property>
        <property name="wordWrap">
         <bool>true</bool>
@@ -143,7 +165,7 @@ QPushButton:disabled {
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>250</y>
+      <y>180</y>
       <width>631</width>
       <height>261</height>
      </rect>
@@ -153,6 +175,11 @@ QPushButton:disabled {
       <widget class="QPushButton" name="button_h">
        <property name="enabled">
         <bool>true</bool>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+        </font>
        </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
@@ -171,7 +198,7 @@ QPushButton:hover {
 }
 QPushButton:disabled {
     background-color: #000;
-    border-color: #111;
+    border-color: #000;
 	color: #000;
 }</string>
        </property>
@@ -185,6 +212,11 @@ QPushButton:disabled {
        <property name="enabled">
         <bool>true</bool>
        </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+        </font>
+       </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
@@ -202,7 +234,7 @@ QPushButton:hover {
 }
 QPushButton:disabled {
     background-color: #000;
-    border-color: #111;
+    border-color: #000;
 	color: #000;
 }</string>
        </property>
@@ -216,6 +248,11 @@ QPushButton:disabled {
        <property name="enabled">
         <bool>true</bool>
        </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+        </font>
+       </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
@@ -233,7 +270,7 @@ QPushButton:hover {
 }
 QPushButton:disabled {
     background-color: #000;
-    border-color: #111;
+    border-color: #000;
 	color: #000;
 }</string>
        </property>
@@ -250,6 +287,11 @@ QPushButton:disabled {
        <property name="enabled">
         <bool>true</bool>
        </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+        </font>
+       </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
@@ -267,7 +309,7 @@ QPushButton:hover {
 }
 QPushButton:disabled {
     background-color: #000;
-    border-color: #111;
+    border-color: #000;
 	color: #000;
 }</string>
        </property>
@@ -281,6 +323,11 @@ QPushButton:disabled {
        <property name="enabled">
         <bool>true</bool>
        </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+        </font>
+       </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
@@ -298,7 +345,7 @@ QPushButton:hover {
 }
 QPushButton:disabled {
     background-color: #000;
-    border-color: #111;
+    border-color: #000;
 	color: #000;
 }</string>
        </property>
@@ -312,6 +359,11 @@ QPushButton:disabled {
        <property name="enabled">
         <bool>true</bool>
        </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+        </font>
+       </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
@@ -329,7 +381,7 @@ QPushButton:hover {
 }
 QPushButton:disabled {
     background-color: #000;
-    border-color: #111;
+    border-color: #000;
 	color: #000;
 }</string>
        </property>
@@ -343,6 +395,11 @@ QPushButton:disabled {
        <property name="enabled">
         <bool>true</bool>
        </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+        </font>
+       </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
@@ -360,7 +417,7 @@ QPushButton:hover {
 }
 QPushButton:disabled {
     background-color: #000;
-    border-color: #111;
+    border-color: #000;
 	color: #000;
 }</string>
        </property>
@@ -374,6 +431,11 @@ QPushButton:disabled {
        <property name="enabled">
         <bool>true</bool>
        </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+        </font>
+       </property>
        <property name="cursor">
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
@@ -391,7 +453,7 @@ QPushButton:hover {
 }
 QPushButton:disabled {
     background-color: #000;
-    border-color: #111;
+    border-color: #000;
 	color: #000;
 }</string>
        </property>

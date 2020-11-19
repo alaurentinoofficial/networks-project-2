@@ -41,7 +41,7 @@ def await_reponse(socket, textbox, buttons, main):
 
                             if btn:
                                 used_alterantives.append(alternative["code"])
-                                btn.setText(alternative["text"])
+                                btn.setText("\n" + alternative["text"])
                                 btn.setEnabled(True)
 
                         for k, v in buttons.items():
@@ -64,10 +64,10 @@ def await_reponse(socket, textbox, buttons, main):
                             v.setText("")
                             v.setEnabled(False)
 
-                        msg = ""
+                        msg = "Scores\n\n"
 
                         for pos, (name, points) in enumerate(players):
-                            msg += "{0}º) {1} - {2} points\n".format(pos+1, name, points)
+                            msg += "{0}º) \t {1} \t {2} points\n".format(pos+1, name, points)
                         
                         textbox.setText(msg)
                         main.exit.setEnabled(True)
@@ -95,9 +95,9 @@ def on_click(socket, answer, buttons, label):
     return wrapped
 
 replay = False
-def replay(main):
+def replay_event(main):
     global replay
-    
+
     def wrapped():
         replay = True
         main.close()
@@ -131,7 +131,7 @@ if __name__ == '__main__':
         v.clicked.connect(on_click(sock, k, buttons, main.label))
     
     main.exit.clicked.connect(MainWindow.close)
-    main.exit.clicked.connect(replay(MainWindow))
+    main.replay.clicked.connect(replay_event(MainWindow))
 
     dlg = NicknameDlg(None)
     if dlg.exec_():

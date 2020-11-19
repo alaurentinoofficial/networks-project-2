@@ -40,6 +40,9 @@ class Room(Thread):
             self.game_running = False
             self.last_question = None
 
+            for q in self.questions:
+                q.answers = []
+
             try:
                 while len(self.players) != self.max_players and self.running:
                     print(".")
@@ -58,7 +61,7 @@ class Room(Thread):
                         result = {"question": question.text, "alternatives": [a.__dict__ for a in question.alternatives]}
                         self.socket.sendto(Response(codes.QUESTION, result).encode(), (p.ip, p.port,))
 
-                    while not self.round_hit and (time.time() - start_time) <= self.round_time:
+                    while not self.round_hit and (time.time() - start_time) <= self.round_time and len(self.last_question.answers) != len(self.players):
                         pass
 
                     for i in range(len(self.players)):
@@ -69,6 +72,9 @@ class Room(Thread):
                             if ans.player == self.players[i]:
                                 _exists = True
                                 _won = ans.correct
+                                break
+                        
+                        print(self.players[i], _exists, _won)
                         
                         if _won:
                             self.players[i].points += 25
@@ -78,9 +84,21 @@ class Room(Thread):
                             self.players[i].points -= 1
 
                         if _won:
-                            self.socket.sendto(Response(codes.FINISH_ROUND, "You won this round!\nWait 5 seconds!\nGet ready!").encode(), (p.ip, p.port,))
+                            self.socket.sendto(
+                                Response(
+                                    codes.FINISH_ROUND
+                                    , "\nYou won this round!\nWait 5 seconds!\nGet ready!"
+                                ).encode()
+                                , (self.players[i].ip, self.players[i].port,)
+                            )
                         else:
-                            self.socket.sendto(Response(codes.FINISH_ROUND, "Wait 5 seconds!\nGet ready!").encode(), (p.ip, p.port,))
+                            self.socket.sendto(
+                                Response(
+                                    codes.FINISH_ROUND
+                                    , "\nWait 5 seconds!\nGet ready!"
+                                ).encode()
+                                , (self.players[i].ip, self.players[i].port,)
+                            )
                     
 
                     if i_round < len(self.questions) - 1:
@@ -129,7 +147,6 @@ class Room(Thread):
     def answer(self, request: Request):
         ip, port = request.connection
         p = Player(ip, port, "")
-        print("here1")
         result = [player for player in self.players if p == player]
 
         if len(result) == 0:
@@ -145,8 +162,6 @@ class Room(Thread):
         for ans in self.last_question.answers:
             if ans.player == player:
                 return Response(code=codes.ALREADY_EXISTS, body="You already answered")
-
-        print("here")
         
         if isinstance(request.body, dict):
             answer_obj = request.body.get("answer")
@@ -159,8 +174,6 @@ class Room(Thread):
                     self.round_hit = True
                 
                 return Response(code=codes.SUCCESS, body="OK")
-        
-        print("here")
         
         # Return invalid parameters
         return Response(code=codes.INVALID_PARAMETERS, body="Invalid params")
@@ -175,7 +188,7 @@ if __name__ == "__main__":
     try:
         server = ServerUDP(('localhost', 8081,))
 
-        room = Room(socket=server.server_socket,questions=questions, max_players=1)
+        room = Room(socket=server.server_socket,questions=questions, max_players=2)
 
         server.router.add("/register", room.register, "ADD")
         server.router.add("/answer", room.answer, "ADD")
