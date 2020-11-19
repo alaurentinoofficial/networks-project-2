@@ -74,8 +74,6 @@ class Room(Thread):
                                 _won = ans.correct
                                 break
                         
-                        print(self.players[i], _exists, _won)
-                        
                         if _won:
                             self.players[i].points += 25
                         elif _exists:

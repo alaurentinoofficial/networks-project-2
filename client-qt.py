@@ -94,17 +94,16 @@ def on_click(socket, answer, buttons, label):
     
     return wrapped
 
-replay = False
-def replay_event(main):
-    global replay
-
+def replay_event(main, setReplay):
     def wrapped():
-        replay = True
+        setReplay(True)
         main.close()
     
     return wrapped
 
 if __name__ == '__main__':
+    replay = False
+    running = False
     sock = socket(AF_INET, SOCK_DGRAM)
 
     app = QtWidgets.QApplication(sys.argv)
@@ -130,14 +129,22 @@ if __name__ == '__main__':
         v.setEnabled(False)
         v.clicked.connect(on_click(sock, k, buttons, main.label))
     
+    def setReplay(x):
+            global replay
+            print("aqui")
+            print(replay)
+            replay = x
+            print(replay)
+
     main.exit.clicked.connect(MainWindow.close)
-    main.replay.clicked.connect(replay_event(MainWindow))
+    main.replay.clicked.connect(replay_event(MainWindow, setReplay))
 
     dlg = NicknameDlg(None)
     if dlg.exec_():
         nickname = dlg.ui.lineEdit.text()
 
         while True:
+            replay = False
             running = True
             receive_thread = Thread(target=await_reponse, args=(sock, main.label, buttons, main,))
             receive_thread.start()
@@ -153,14 +160,12 @@ if __name__ == '__main__':
                 MainWindow.show()
                 sys.exit(app.exec_())
             except:
-                if replay:
-                    replay = False
-                    
-                    running = False
-                    receive_thread.join()
+                running = False
+                receive_thread.join()
 
+                print(replay)
+
+                if replay:
                     continue
                 else:
-                    running = False
-                    receive_thread.join()
                     break
