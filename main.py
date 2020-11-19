@@ -21,7 +21,7 @@ class Room(Thread):
     max_players: int
     round_time: int
 
-    def __init__(self, socket, questions: List[Question], max_players: str = 5, round_time: int = 10, players: List[Player] = []):
+    def __init__(self, socket, questions: List[Question], max_players: int = 5, round_time: int = 10, players: List[Player] = []):
         super().__init__()
         self.questions = questions
         self.players = players
@@ -35,61 +35,66 @@ class Room(Thread):
 
     def run(self):
         self.running = True
-        try:
-            while len(self.players) != self.max_players and self.running:
-                print(".")
-                time.sleep(1)
-            
-            self.game_running = True
-            
-            for i_round, question in enumerate(random_sort(room.questions)):
-                if not self.running:
-                    return
-
-                self.last_question = question
-                start_time = time.time()
-                
-                for p in self.players:
-                    result = {"question": question.text, "alternatives": [a.__dict__ for a in question.alternatives]}
-                    self.socket.sendto(Response(codes.QUESTION, result).encode(), (p.ip, p.port,))
-
-                while not self.round_hit != None and (time.time() - start_time) <= self.round_time:
-                    pass
-
-                for i in range(len(self.players)):
-                    _exists = False
-                    _won = False
-
-                    for ans in self.last_question.answers:
-                        if ans.player == self.players[i]:
-                            _exists = False
-                            won = ans.correct
-                    
-                    if _won:
-                        self.players[i].points += 25
-                    elif _exists:
-                        self.players[i].points -= 5
-                    else:
-                        self.players[i].points -= 1
-
-                    if _won:
-                        self.socket.sendto(Response(codes.FINISH_ROUND, "You won this round!\nWait 5 seconds!\nGet ready!").encode(), (p.ip, p.port,))
-                    else:
-                        self.socket.sendto(Response(codes.FINISH_ROUND, "Wait 5 seconds!\nGet ready!").encode(), (p.ip, p.port,))
-                
-
-                if i_round < len(room.questions) - 1:
-                    time.sleep(5)
-            
-            ranking = {fp.name: p.points for p in self.players}
-
-            for p in self.players:
-                server.send(Response(codes.RESULT_RANK, ranking).encode(), (p.ip, p.port,))
-
-        except ValueError as e:
-            print(e)
+        while self.running:
+            self.players = []
             self.game_running = False
-    
+            self.last_question = None
+
+            try:
+                while len(self.players) != self.max_players and self.running:
+                    print(".")
+                    time.sleep(1)
+                
+                self.game_running = True
+                for i_round, question in enumerate(random_sort(self.questions)):
+                    self.round_hit = False
+                    if not self.running:
+                        return
+
+                    self.last_question = question
+                    start_time = time.time()
+                    
+                    for p in self.players:
+                        result = {"question": question.text, "alternatives": [a.__dict__ for a in question.alternatives]}
+                        self.socket.sendto(Response(codes.QUESTION, result).encode(), (p.ip, p.port,))
+
+                    while not self.round_hit and (time.time() - start_time) <= self.round_time:
+                        pass
+
+                    for i in range(len(self.players)):
+                        _exists = False
+                        _won = False
+
+                        for ans in self.last_question.answers:
+                            if ans.player == self.players[i]:
+                                _exists = True
+                                _won = ans.correct
+                        
+                        if _won:
+                            self.players[i].points += 25
+                        elif _exists:
+                            self.players[i].points -= 5
+                        else:
+                            self.players[i].points -= 1
+
+                        if _won:
+                            self.socket.sendto(Response(codes.FINISH_ROUND, "You won this round!\nWait 5 seconds!\nGet ready!").encode(), (p.ip, p.port,))
+                        else:
+                            self.socket.sendto(Response(codes.FINISH_ROUND, "Wait 5 seconds!\nGet ready!").encode(), (p.ip, p.port,))
+                    
+
+                    if i_round < len(self.questions) - 1:
+                        time.sleep(5)
+                
+                ranking = {p.name: p.points for p in self.players}
+
+                for p in self.players:
+                    self.socket.sendto(Response(codes.RESULT_RANK, ranking).encode(), (p.ip, p.port,))
+
+            except ValueError as e:
+                print(e)
+                self.game_running = False
+        
     def status(self, request: Request):
         return Response(code=codes.SUCCESS, body={"total": self.max_players, "actual": len(self.players), 'running': self.running})
     
@@ -124,6 +129,7 @@ class Room(Thread):
     def answer(self, request: Request):
         ip, port = request.connection
         p = Player(ip, port, "")
+        print("here1")
         result = [player for player in self.players if p == player]
 
         if len(result) == 0:
@@ -134,17 +140,27 @@ class Room(Thread):
         
         elif self.round_hit:
             return Response(code=codes.ALREADY_EXISTS, body="Someone alrady won")
+
+        player = result[0]
+        for ans in self.last_question.answers:
+            if ans.player == player:
+                return Response(code=codes.ALREADY_EXISTS, body="You already answered")
+
+        print("here")
         
         if isinstance(request.body, dict):
             answer_obj = request.body.get("answer")
 
             if answer_obj:
                 # Add new answer in actual question
-                player = result[0]
-                self.last_question.answers(Answer(player, answer_obj, answer_obj == self.last_question.correct_code))
+                self.last_question.answers.append(Answer(player, answer_obj, answer_obj == self.last_question.correct_code))
 
                 if answer_obj == self.last_question.correct_code:
                     self.round_hit = True
+                
+                return Response(code=codes.SUCCESS, body="OK")
+        
+        print("here")
         
         # Return invalid parameters
         return Response(code=codes.INVALID_PARAMETERS, body="Invalid params")
@@ -159,7 +175,7 @@ if __name__ == "__main__":
     try:
         server = ServerUDP(('localhost', 8081,))
 
-        room = Room(socket=server.server_socket,questions=questions, max_players=2)
+        room = Room(socket=server.server_socket,questions=questions, max_players=1)
 
         server.router.add("/register", room.register, "ADD")
         server.router.add("/answer", room.answer, "ADD")
