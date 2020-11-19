@@ -1,76 +1,532 @@
 [
     {
-        "text": "Qual é o elemento ... ?",
-        "correct_code": "a",
+        "text": "Em que ordem surgiram os modelos atômicos?",
+        "correct_code": "e",
         "alternatives": [
             {
                 "code": "a",
-                "text": "Alternativa A"
+                "text": "Thomson, Dalton, Rutherford, Rutherford-Bohr"
             },
             {
                 "code": "b",
-                "text": "Alternativa B"
+                "text": "Rutherford-Bohr, Rutherford, Thomson, Dalton"
             },
             {
                 "code": "c",
-                "text": "Alternativa B"
+                "text": "Dalton, Rutherford-Bohr, Thomson, Rutherford"
             },
             {
                 "code": "d",
-                "text": "Alternativa D"
-            }
-        ] 
-    },
-    {
-        "text": "Qual é o pior ... ?",
-        "correct_code": "a",
-        "alternatives": [
-            {
-                "code": "a",
-                "text": "Alternativa A"
-            },
-            {
-                "code": "b",
-                "text": "Alternativa B"
-            },
-            {
-                "code": "c",
-                "text": "Alternativa B"
-            },
-            {
-                "code": "d",
-                "text": "Alternativa D"
+                "text": "Orca, onça e tarântula"
             },
             {
                 "code": "e",
-                "text": "Alternativa E"
+                "text": "Leão, tubarão branco e urso cinzento"
+            }
+        ]
+    },
+    {
+        "text": "Quais são os três predadores do reino animal reconhecidos pela habilidade de caçar em grupo, se camuflar para surpreender as presas e possuir sentidos apurados, respectivamente:",
+        "correct_code": "c",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "Tubarão branco, crocodilo e sucuri"
+            },
+            {
+                "code": "b",
+                "text": "Tigre, gavião e orca"
+            },
+            {
+                "code": "c",
+                "text": "Hiena, urso branco e lobo cinzento"
+            },
+            {
+                "code": "d",
+                "text": "Orca, onça e tarântula"
+            },
+            {
+                "code": "e",
+                "text": "Leão, tubarão branco e urso cinzento"
+            }
+        ]
+    },
+    {
+        "text": " Como se chamam os vasos que transportam sangue do coração para a periferia do corpo??",
+        "correct_code": "c",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "Veia"
+            },
+            {
+                "code": "b",
+                "text": "Musculo"
+            },
+            {
+                "code": "c",
+                "text": "Artéria"
+            },
+            {
+                "code": "d",
+                "text": "Coração"
+            }
+        ]
+    },
+    {
+        "text": "Qual animal gruguleija?",
+        "correct_code": "c",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "Galo"
+            },
+            {
+                "code": "b",
+                "text": "Gambá"
+            },
+            {
+                "code": "c",
+                "text": "Peru"
+            },
+            {
+                "code": "d",
+                "text": "Sapo"
+            }
+        ]
+    },
+    {
+        "text": "Qual o metal cujo símbolo químico é o Au?",
+        "correct_code": "c",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "Ferro"
+            },
+            {
+                "code": "b",
+                "text": "Auricio"
+            },
+            {
+                "code": "c",
+                "text": "Ouro"
+            },
+            {
+                "code": "d",
+                "text": "Aumencio"
+            }
+        ]
+    },
+    {
+        "text": "Em que século o continente europeu foi devastado pela peste bubônica?",
+        "correct_code": "b",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "No século XI"
+            },
+            {
+                "code": "b",
+                "text": "No século XIV"
+            },
+            {
+                "code": "c",
+                "text": "No século X"
+            },
+            {
+                "code": "d",
+                "text": "No século XII"
+            }
+        ]
+    },
+    {
+        "text": "Quem foi o criador da tragédia grega?",
+        "correct_code": "d",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "Homero"
+            },
+            {
+                "code": "b",
+                "text": "Eurípedes"
+            },
+            {
+                "code": "c",
+                "text": "Plutarco"
+            },
+            {
+                "code": "d",
+                "text": "Ésquilo"
+            }
+        ]
+    },
+    {
+        "text": "Quem viveu, segundo a bíblia, 969 anos??",
+        "correct_code": "f",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "Moisés"
+            },
+            {
+                "code": "b",
+                "text": "Abraão"
+            },
+            {
+                "code": "c",
+                "text": "Adão"
+            },
+            {
+                "code": "d",
+                "text": "Ebraim"
+            },
+            {
+                "code": "e",
+                "text": "Salomão"
             },
             {
                 "code": "f",
-                "text": "Alternativa F"
+                "text": "Matusalém"
             }
-        ] 
+        ]
     },
     {
-        "text": "Qual é a melhor matéria do CIN ?",
+        "text": "Quem pintou o teto da capela sistina?",
         "correct_code": "a",
         "alternatives": [
             {
                 "code": "a",
-                "text": "AAAAAAAA"
+                "text": "Michelangelo"
             },
             {
                 "code": "b",
-                "text": "BBBBBBBB"
+                "text": "Leonardo da Vinci"
             },
             {
                 "code": "c",
-                "text": "BBBBBBBB"
+                "text": "Sandro Botticelli"
             },
             {
                 "code": "d",
-                "text": "DDDDDDDD"
+                "text": "Donatello"
+            },
+            {
+                "code": "e",
+                "text": "Romero Britto"
+            },
+            {
+                "code": "f",
+                "text": "Carravágio"
             }
-        ] 
+        ]
+    },
+    {
+        "text": "Quem amamentou os gêmeos Rômulo e Remo?",
+        "correct_code": "c",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "A mãe deles"
+            },
+            {
+                "code": "b",
+                "text": "Uma cabra"
+            },
+            {
+                "code": "c",
+                "text": "Uma Loba"
+            },
+            {
+                "code": "d",
+                "text": "Um Dragão"
+            },
+            {
+                "code": "e",
+                "text": "A Dilma"
+            },
+            {
+                "code": "f",
+                "text": "Uma vaca"
+            }
+        ]
+    },
+    {
+        "text": "Qual maior animal terrestre?",
+        "correct_code": "c",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "Baleia Azul"
+            },
+            {
+                "code": "b",
+                "text": "Dinossauro"
+            },
+            {
+                "code": "c",
+                "text": "Elefante Africano"
+            },
+            {
+                "code": "d",
+                "text": "Girafa"
+            }
+        ]
+    },
+    {
+        "text": " As pessoas de qual tipo sanguíneo são consideradas doadores universais?",
+        "correct_code": "a",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "Tipo O"
+            },
+            {
+                "code": "b",
+                "text": "Tipo A"
+            },
+            {
+                "code": "c",
+                "text": "Tipo AB"
+            },
+            {
+                "code": "d",
+                "text": "Tipo B"
+            }
+        ]
+    },
+    {
+        "text": "Em que oceano fica Madagascar?",
+        "correct_code": "a",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "Oceano Índico"
+            },
+            {
+                "code": "b",
+                "text": "Oceano Antártico"
+            },
+            {
+                "code": "c",
+                "text": "Oceano Atlântico"
+            },
+            {
+                "code": "d",
+                "text": "Oceano Pacífico"
+            },
+            {
+                "code": "e",
+                "text": "Oceano Ártico"
+            }
+        ]
+    },
+    {
+        "text": "Júpiter e Plutão são os correlatos romanos de quais deuses gregos?",
+        "correct_code": "c",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "Ares e Hermes"
+            },
+            {
+                "code": "b",
+                "text": "Cronos e Apolo"
+            },
+            {
+                "code": "c",
+                "text": "Zeus e Hades"
+            },
+            {
+                "code": "d",
+                "text": "Dionísio e Deméter"
+            },
+            {
+                "code": "e",
+                "text": "Zeus e Ares"
+            }
+        ]
+    },
+    {
+        "text": "Qual o tema do famoso discurso Eu Tenho um Sonho, de Martin Luther King?",
+        "correct_code": "a",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "Igualdade das raças"
+            },
+            {
+                "code": "b",
+                "text": "Justiça para os menos favorecidos"
+            },
+            {
+                "code": "c",
+                "text": "Intolerância religiosa"
+            },
+            {
+                "code": "d",
+                "text": "Prêmio Nobel da Paz"
+            },
+            {
+                "code": "e",
+                "text": "Luta contra o Apartheid"
+            }
+        ]
+    },
+    {
+        "text": "Qual foi o recurso utilizado inicialmente pelo homem para explicar a origem das coisas?",
+        "correct_code": "e",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "A Filosofia"
+            },
+            {
+                "code": "b",
+                "text": "A Biologia"
+            },
+            {
+                "code": "c",
+                "text": "A Matemática"
+            },
+            {
+                "code": "d",
+                "text": "A Astronomia"
+            },
+            {
+                "code": "e",
+                "text": "A Mitologia"
+            }
+        ]
+    },
+    {
+        "text": "“It is six twenty ou 'twenty past six'. Que horas são em inglês?",
+        "correct_code": "c",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "60:20"
+            },
+            {
+                "code": "b",
+                "text": "6:02"
+            },
+            {
+                "code": "c",
+                "text": "6:20"
+            },
+            {
+                "code": "d",
+                "text": "62:20"
+            },
+            {
+                "code": "e",
+                "text": "6:21"
+            }
+        ]
+    },
+    {
+        "text": "“No exterior de que famoso edifício francês foi construída uma enorme pirâmide de vidro em 1989?",
+        "correct_code": "e",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "Grand Palais"
+            },
+            {
+                "code": "b",
+                "text": "Bastilnha"
+            },
+            {
+                "code": "c",
+                "text": "Capéla de Notre-Dame"
+            },
+            {
+                "code": "d",
+                "text": "Torre Eifel"
+            },
+            {
+                "code": "e",
+                "text": "Museu Louvre"
+            }
+        ]
+    },
+    {
+        "text": "Qual a velocidade da luz?",
+        "correct_code": "d",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "300 000 000 metros por segundo (m/s)"
+            },
+            {
+                "code": "b",
+                "text": "150 000 000 metros por segundo (m/s)"
+            },
+            {
+                "code": "c",
+                "text": "199 792 458 metros por segundo (m/s)"
+            },
+            {
+                "code": "d",
+                "text": "299 792 458 metros por segundo (m/s)"
+            },
+            {
+                "code": "e",
+                "text": "30 000 000 metros por segundo (m/s)"
+            }
+        ]
+    },
+    {
+        "text": "Qual a montanha mais alta do Brasil?",
+        "correct_code": "b",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "Pico Paraná"
+            },
+            {
+                "code": "b",
+                "text": "Pico da Neblina"
+            },
+            {
+                "code": "c",
+                "text": "Monte Roraima"
+            },
+            {
+                "code": "d",
+                "text": "Pico Maior de Friburgo"
+            },
+            {
+                "code": "e",
+                "text": "Pico da Bandeira"
+            }
+        ]
+    },
+    {
+        "text": "Em que período da pré-história o fogo foi descoberto?",
+        "correct_code": "b",
+        "alternatives": [
+            {
+                "code": "a",
+                "text": "Neolítico"
+            },
+            {
+                "code": "b",
+                "text": "Paleolítico"
+            },
+            {
+                "code": "c",
+                "text": "Idade dos Metais"
+            },
+            {
+                "code": "d",
+                "text": "Período da Pedra Polida"
+            },
+            {
+                "code": "e",
+                "text": "Idade Média"
+            }
+        ]
     }
 ]
