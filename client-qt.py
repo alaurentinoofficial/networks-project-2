@@ -27,7 +27,17 @@ def await_reponse(socket, textbox, buttons, main):
                 print(data)
 
                 if result.get("code"):
-                    if result.get("code") == codes.REGISTRED:
+                    if result.get("code") == codes.FULL:
+                        textbox.setText("\nThe run is full!\nWait and try again")
+                        main.exit.setEnabled(True)
+                        main.replay.setEnabled(True)
+                        main.replay.setText("Try again")
+                    if result.get("code") == codes.NOT_ALLOWED:
+                        textbox.setText("\nThe gamming is running!\nWait some minutes and try again!")
+                        main.exit.setEnabled(True)
+                        main.replay.setEnabled(True)
+                        main.replay.setText("Try again")
+                    elif result.get("code") == codes.REGISTRED:
                         textbox.setText("Resgistred!\n\n Wait for more players...")
                     
                     elif result.get("code") == codes.QUESTION:
@@ -72,6 +82,7 @@ def await_reponse(socket, textbox, buttons, main):
                         textbox.setText(msg)
                         main.exit.setEnabled(True)
                         main.replay.setEnabled(True)
+                        main.replay.setText("Replay")
                         running =False
                         break
             except timeout: 

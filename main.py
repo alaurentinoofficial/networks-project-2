@@ -199,7 +199,7 @@ if __name__ == "__main__":
     try:
         server = ServerUDP(('localhost', 8081,))
 
-        room = Room(socket=server.server_socket,questions=questions)
+        room = Room(socket=server.server_socket,questions=questions, max_players=1)
 
         server.router.add("/register", room.register, "ADD")
         server.router.add("/answer", room.answer, "ADD")
