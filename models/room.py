@@ -173,7 +173,7 @@ class Room(Thread):
 
                 # Block if the gamming is running
                 if self.game_running or self.last_question != None:
-                    return Response(code=codes.NOT_ALLOWED, body="Gamming is running")
+                    return Response(code=codes.IS_RUNNING, body="Gamming is running")
                 
                 if len(self.players) == self.max_players:
                     return Response(code=codes.FULL, body="The room is full")
