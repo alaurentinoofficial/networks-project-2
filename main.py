@@ -33,6 +33,85 @@ class Room(Thread):
         self.socket = socket
         self.round_time = round_time
 
+    def play(self):
+        for q in self.questions:
+            q.answers = []
+
+        try:
+            while len(self.players) != self.max_players and self.running:
+                print(".")
+                time.sleep(1)
+            
+            if not self.running:
+                return
+            
+            self.game_running = True
+            for i_round, question in enumerate(random_sort(self.questions)):
+                self.round_hit = False
+                
+                if not self.running:
+                    return
+
+                self.last_question = question
+                start_time = time.time()
+                
+                for p in self.players:
+                    result = {"question": question.text, "alternatives": [a.__dict__ for a in question.alternatives]}
+                    self.socket.sendto(Response(codes.QUESTION, result).encode(), (p.ip, p.port,))
+
+                while not self.round_hit and (time.time() - start_time) <= self.round_time and len(self.last_question.answers) != len(self.players) and self.running:
+                    pass
+
+                if not self.running:
+                    return
+
+                for i in range(len(self.players)):
+                    _exists = False
+                    _won = False
+
+                    for ans in self.last_question.answers:
+                        if ans.player == self.players[i]:
+                            _exists = True
+                            _won = ans.correct
+                            break
+                    
+                    if _won:
+                        self.players[i].points += 25
+                    elif _exists:
+                        self.players[i].points -= 5
+                    else:
+                        self.players[i].points -= 1
+
+                    if _won:
+                        self.socket.sendto(
+                            Response(
+                                codes.FINISH_ROUND
+                                , "\nYou won this round!\nWait 5 seconds!\nGet ready!"
+                            ).encode()
+                            , (self.players[i].ip, self.players[i].port,)
+                        )
+                    else:
+                        self.socket.sendto(
+                            Response(
+                                codes.FINISH_ROUND
+                                , "\nWait 5 seconds!\nGet ready!"
+                            ).encode()
+                            , (self.players[i].ip, self.players[i].port,)
+                        )
+                
+
+                if i_round < len(self.questions) - 1:
+                    time.sleep(5)
+            
+            ranking = {p.name: p.points for p in self.players}
+
+            for p in self.players:
+                self.socket.sendto(Response(codes.RESULT_RANK, ranking).encode(), (p.ip, p.port,))
+
+            self.game_running = False
+        except ValueError as e:
+            print(e)
+
     def run(self):
         self.running = True
         while self.running:
@@ -40,76 +119,10 @@ class Room(Thread):
             self.game_running = False
             self.last_question = None
 
-            for q in self.questions:
-                q.answers = []
-
-            try:
-                while len(self.players) != self.max_players and self.running:
-                    print(".")
-                    time.sleep(1)
-                
-                self.game_running = True
-                for i_round, question in enumerate(random_sort(self.questions)):
-                    self.round_hit = False
-                    if not self.running:
-                        return
-
-                    self.last_question = question
-                    start_time = time.time()
-                    
-                    for p in self.players:
-                        result = {"question": question.text, "alternatives": [a.__dict__ for a in question.alternatives]}
-                        self.socket.sendto(Response(codes.QUESTION, result).encode(), (p.ip, p.port,))
-
-                    while not self.round_hit and (time.time() - start_time) <= self.round_time and len(self.last_question.answers) != len(self.players):
-                        pass
-
-                    for i in range(len(self.players)):
-                        _exists = False
-                        _won = False
-
-                        for ans in self.last_question.answers:
-                            if ans.player == self.players[i]:
-                                _exists = True
-                                _won = ans.correct
-                                break
-                        
-                        if _won:
-                            self.players[i].points += 25
-                        elif _exists:
-                            self.players[i].points -= 5
-                        else:
-                            self.players[i].points -= 1
-
-                        if _won:
-                            self.socket.sendto(
-                                Response(
-                                    codes.FINISH_ROUND
-                                    , "\nYou won this round!\nWait 5 seconds!\nGet ready!"
-                                ).encode()
-                                , (self.players[i].ip, self.players[i].port,)
-                            )
-                        else:
-                            self.socket.sendto(
-                                Response(
-                                    codes.FINISH_ROUND
-                                    , "\nWait 5 seconds!\nGet ready!"
-                                ).encode()
-                                , (self.players[i].ip, self.players[i].port,)
-                            )
-                    
-
-                    if i_round < len(self.questions) - 1:
-                        time.sleep(5)
-                
-                ranking = {p.name: p.points for p in self.players}
-
-                for p in self.players:
-                    self.socket.sendto(Response(codes.RESULT_RANK, ranking).encode(), (p.ip, p.port,))
-
-            except ValueError as e:
-                print(e)
-                self.game_running = False
+            self.play()
+        
+        self.game_running = False
+        self.running = False
         
     def status(self, request: Request):
         return Response(code=codes.SUCCESS, body={"total": self.max_players, "actual": len(self.players), 'running': self.running})
@@ -186,15 +199,17 @@ if __name__ == "__main__":
     try:
         server = ServerUDP(('localhost', 8081,))
 
-        room = Room(socket=server.server_socket,questions=questions, max_players=2)
+        room = Room(socket=server.server_socket,questions=questions)
 
         server.router.add("/register", room.register, "ADD")
         server.router.add("/answer", room.answer, "ADD")
 
         server.start()
         room.start()
-        room.join()
-    except ValueError as e:
-        print(e)
+    
+        while room.running:
+            pass
+    except:
         room.running = False
+        
 server.stop()
