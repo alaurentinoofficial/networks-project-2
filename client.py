@@ -13,7 +13,7 @@ def await_reponse(socket):
     while running:
         try:
             data, client_conn = socket.recvfrom(2048)
-            print("")
+            print("\n" * 50)
             print(data)
             print("")
         except timeout: 

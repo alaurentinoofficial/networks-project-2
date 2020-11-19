@@ -26,12 +26,14 @@ class Question():
     correct_code: str
     alternatives: List[Alternative]
     answers: List[Answer]
+    answered_players = List[Player]
 
     def __init__(self, text: str = None, correct_code: str = None, alternatives: List[Alternative] = []):
         self.text = text
         self.correct_code = correct_code
         self.alternatives = alternatives
         self.answers = []
+        self.answered_players = []
     
     def reset(self):
         self.answers = []
