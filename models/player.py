@@ -1,18 +1,20 @@
 class Player():
     ip: str
     port: int
-    point: float
+    points: float
+    name: str
 
-    def __init__(self, ip: str, port: int, point: float = 0.0):
+    def __init__(self, ip: str, port: int, name: str, points: float = 0.0):
         self.ip = ip
         self.port = port
-        self.point = point
+        self.points = points
+        self.name = name
     
     def __str__(self):
-        return f"Player(ip={self.ip}, port={self.port}, points={self.point})"
+        return f"Player(ip={self.ip}, port={self.port}, name={self.name}, points={self.points})"
     
     def __repr__(self):
-        return f"Player(ip={self.ip}, port={self.port}, points={self.point})"
+        return f"Player(ip={self.ip}, port={self.port}, name={self.name}, points={self.points})"
 
     @property
     def address(self):

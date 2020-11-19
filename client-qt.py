@@ -14,10 +14,12 @@ from ui.nickname import Ui_Dialog, NicknameDlg
 from threading import Thread
 from socket import socket, AF_INET, SOCK_DGRAM, timeout
 
-def await_reponse(socket, textbox, buttons, running):
-        socket.settimeout(1) 
+running = False
 
-        while running():
+def await_reponse(socket, textbox, buttons, main):
+        global running
+        socket.settimeout(1) 
+        while running:
             try:
                 data, client_conn = socket.recvfrom(2048)
                 result = json.loads(data.decode())
@@ -47,7 +49,7 @@ def await_reponse(socket, textbox, buttons, running):
                                 v.setText("")
                                 v.setEnabled(False)
                     
-                    elif result.get("code") == codes.AWAIT_NEXT_QUESTION:
+                    elif result.get("code") == codes.FINISH_ROUND:
                         textbox.setText(result["body"])
 
                         for k, v in buttons.items():
@@ -68,6 +70,10 @@ def await_reponse(socket, textbox, buttons, running):
                             msg += "{0}º) {1} - {2} points\n".format(pos+1, name, points)
                         
                         textbox.setText(msg)
+                        main.exit.setEnabled(True)
+                        main.replay.setEnabled(True)
+                        running =False
+                        break
             except timeout: 
                 continue
             except (KeyboardInterrupt, SystemExit):
@@ -85,6 +91,16 @@ def on_click(socket, answer, buttons, label):
         label.setText("Wating server response...")
 
         return
+    
+    return wrapped
+
+replay = False
+def replay(main):
+    global replay
+    
+    def wrapped():
+        replay = True
+        main.close()
     
     return wrapped
 
@@ -113,22 +129,38 @@ if __name__ == '__main__':
         v.setText("")
         v.setEnabled(False)
         v.clicked.connect(on_click(sock, k, buttons, main.label))
+    
+    main.exit.clicked.connect(MainWindow.close)
+    main.exit.clicked.connect(replay(MainWindow))
 
     dlg = NicknameDlg(None)
     if dlg.exec_():
         nickname = dlg.ui.lineEdit.text()
 
-        running = True
-        receive_thread = Thread(target=await_reponse, args=(sock, main.label, buttons, lambda: running,))
-        receive_thread.start()
+        while True:
+            running = True
+            receive_thread = Thread(target=await_reponse, args=(sock, main.label, buttons, main,))
+            receive_thread.start()
 
-        payload = {"body": {"nickname": nickname}, "method": "ADD", "route": "/register"}
-        msg = json.dumps(payload).encode()
-        
-        sock.sendto(msg, ("localhost", 8081))
+            main.exit.setEnabled(False)
+            main.replay.setEnabled(False)
 
-        try:
-            MainWindow.show()
-            sys.exit(app.exec_())
-        except:
-            running = False
+            payload = {"body": {"nickname": nickname}, "method": "ADD", "route": "/register"}
+            msg = json.dumps(payload).encode()
+            
+            sock.sendto(msg, ("localhost", 8081))
+            try:
+                MainWindow.show()
+                sys.exit(app.exec_())
+            except:
+                if replay:
+                    replay = False
+                    
+                    running = False
+                    receive_thread.join()
+
+                    continue
+                else:
+                    running = False
+                    receive_thread.join()
+                    break

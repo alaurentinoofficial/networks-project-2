@@ -14,12 +14,14 @@ class Alternative():
         self.text = text
     
 class Answer():
-    id_player: str
+    player: str
     answer: str
+    correct: bool
 
-    def __init__(self, id_player: str = None, answer: str = None):
+    def __init__(self, player: Player = None, answer: str = None, correct: bool = False):
         self.answer = answer
-        self.alternative = id_player  
+        self.player = player
+        self.correct = correct
 
 class Question():
     text: str

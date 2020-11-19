@@ -14,15 +14,79 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(640, 631)
+        MainWindow.resize(649, 521)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setStyleSheet("QWidget {\n"
 "    background: #000000;\n"
 "}")
         self.centralwidget.setObjectName("centralwidget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(10, 180, 631, 71))
+        self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.replay = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        self.replay.setEnabled(False)
+        self.replay.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.replay.setStyleSheet("QPushButton {\n"
+"    background-color: rgb(15, 151, 255);\n"
+"    border: 2px solid rgb(15, 151, 255);\n"
+"    border-radius: 20;\n"
+"    color: #eee;\n"
+"    height: 40px;\n"
+"    font-size: 14px;\n"
+"    font-weight: bold;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(12, 129, 217);\n"
+"    border-color: rgb(12, 129, 217);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(12, 129, 217);\n"
+"    border-color: rgb(12, 129, 217);\n"
+"}\n"
+"QPushButton:disabled {\n"
+"    background-color: #000;\n"
+"    border-color: #111;\n"
+"    color: #000;\n"
+"}")
+        self.replay.setObjectName("replay")
+        self.horizontalLayout.addWidget(self.replay)
+        self.exit = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        self.exit.setEnabled(False)
+        self.exit.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.exit.setStyleSheet("QPushButton {\n"
+"    background-color: rgb(255, 114, 14);\n"
+"    border: 2px solid rgb(240, 100, 12);\n"
+"    border-radius: 20;\n"
+"    color: #eee;\n"
+"    height: 40px;\n"
+"    font-size: 14px;\n"
+"    font-weight: bold;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(235, 95, 8);\n"
+"    border-color: rgb(235, 95, 8);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(235, 95, 8);\n"
+"    border-color: rgb(235, 95, 8);\n"
+"}\n"
+"QPushButton:disabled {\n"
+"    background-color: #000;\n"
+"    border-color: #111;\n"
+"    color: #000;\n"
+"}")
+        self.exit.setObjectName("exit")
+        self.horizontalLayout.addWidget(self.exit)
+        self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
+        self.layoutWidget.setGeometry(QtCore.QRect(9, 9, 631, 171))
+        self.layoutWidget.setObjectName("layoutWidget")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.layoutWidget)
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.label = QtWidgets.QLabel(self.layoutWidget)
         self.label.setStyleSheet("QLabel {\n"
 "    color: #fff;\n"
 "    font-size: 16px;\n"
@@ -30,105 +94,15 @@ class Ui_MainWindow(object):
         self.label.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.label.setWordWrap(True)
         self.label.setObjectName("label")
-        self.verticalLayout.addWidget(self.label)
-        self.gridLayout = QtWidgets.QGridLayout()
+        self.horizontalLayout_2.addWidget(self.label)
+        self.layoutWidget1 = QtWidgets.QWidget(self.centralwidget)
+        self.layoutWidget1.setGeometry(QtCore.QRect(10, 250, 631, 261))
+        self.layoutWidget1.setObjectName("layoutWidget1")
+        self.gridLayout = QtWidgets.QGridLayout(self.layoutWidget1)
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setObjectName("gridLayout")
-        self.button_g = QtWidgets.QPushButton(self.centralwidget)
-        self.button_g.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.button_g.setStyleSheet("QPushButton {\n"
-"    background-color: #555;\n"
-"    border: 2px solid #666;\n"
-"    border-radius: 20;\n"
-"    color: #eee;\n"
-"    height: 40px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: #1c7fe8;\n"
-"    border-color: #1c7fe8;\n"
-"}"
-"QPushButton:disabled {\n"
-"    background-color: #111;\n"
-"    border-color: #111;\n"
-"}")
-        self.button_g.setObjectName("button_g")
-        self.gridLayout.addWidget(self.button_g, 3, 0, 1, 1)
-        self.button_c = QtWidgets.QPushButton(self.centralwidget)
-        self.button_c.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.button_c.setStyleSheet("QPushButton {\n"
-"    background-color: #555;\n"
-"    border: 2px solid #666;\n"
-"    border-radius: 20;\n"
-"    color: #eee;\n"
-"    height: 40px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: #1c7fe8;\n"
-"    border-color: #1c7fe8;\n"
-"}"
-"QPushButton:disabled {\n"
-"    background-color: #111;\n"
-"    border-color: #111;\n"
-"}")
-        self.button_c.setObjectName("button_c")
-        self.gridLayout.addWidget(self.button_c, 1, 0, 1, 1)
-        self.button_f = QtWidgets.QPushButton(self.centralwidget)
-        self.button_f.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.button_f.setStyleSheet("QPushButton {\n"
-"    background-color: #555;\n"
-"    border: 2px solid #666;\n"
-"    border-radius: 20;\n"
-"    color: #eee;\n"
-"    height: 40px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: #1c7fe8;\n"
-"    border-color: #1c7fe8;\n"
-"}"
-"QPushButton:disabled {\n"
-"    background-color: #111;\n"
-"    border-color: #111;\n"
-"}")
-        self.button_f.setObjectName("button_f")
-        self.gridLayout.addWidget(self.button_f, 2, 1, 1, 1)
-        self.button_a = QtWidgets.QPushButton(self.centralwidget)
-        self.button_a.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.button_a.setStyleSheet("QPushButton {\n"
-"    background-color: #555;\n"
-"    border: 2px solid #666;\n"
-"    border-radius: 20;\n"
-"    color: #eee;\n"
-"    height: 40px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: #1c7fe8;\n"
-"    border-color: #1c7fe8;\n"
-"}"
-"QPushButton:disabled {\n"
-"    background-color: #111;\n"
-"    border-color: #111;\n"
-"}")
-        self.button_a.setObjectName("button_a")
-        self.gridLayout.addWidget(self.button_a, 0, 0, 1, 1)
-        self.button_d = QtWidgets.QPushButton(self.centralwidget)
-        self.button_d.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.button_d.setStyleSheet("QPushButton {\n"
-"    background-color: #555;\n"
-"    border: 2px solid #666;\n"
-"    border-radius: 20;\n"
-"    color: #eee;\n"
-"    height: 40px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: #1c7fe8;\n"
-"    border-color: #1c7fe8;\n"
-"}"
-"QPushButton:disabled {\n"
-"    background-color: #111;\n"
-"    border-color: #111;\n"
-"}")
-        self.button_d.setObjectName("button_d")
-        self.gridLayout.addWidget(self.button_d, 1, 1, 1, 1)
-        self.button_h = QtWidgets.QPushButton(self.centralwidget)
+        self.button_h = QtWidgets.QPushButton(self.layoutWidget1)
+        self.button_h.setEnabled(True)
         self.button_h.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.button_h.setStyleSheet("QPushButton {\n"
 "    background-color: #555;\n"
@@ -140,16 +114,18 @@ class Ui_MainWindow(object):
 "QPushButton:hover {\n"
 "    background-color: #1c7fe8;\n"
 "    border-color: #1c7fe8;\n"
-"}"
+"}\n"
 "QPushButton:disabled {\n"
-"    background-color: #111;\n"
+"    background-color: #000;\n"
 "    border-color: #111;\n"
+"    color: #000;\n"
 "}")
         self.button_h.setObjectName("button_h")
-        self.gridLayout.addWidget(self.button_h, 3, 1, 1, 1)
-        self.button_e = QtWidgets.QPushButton(self.centralwidget)
-        self.button_e.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.button_e.setStyleSheet("QPushButton {\n"
+        self.gridLayout.addWidget(self.button_h, 5, 1, 1, 1)
+        self.button_f = QtWidgets.QPushButton(self.layoutWidget1)
+        self.button_f.setEnabled(True)
+        self.button_f.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.button_f.setStyleSheet("QPushButton {\n"
 "    background-color: #555;\n"
 "    border: 2px solid #666;\n"
 "    border-radius: 20;\n"
@@ -159,14 +135,16 @@ class Ui_MainWindow(object):
 "QPushButton:hover {\n"
 "    background-color: #1c7fe8;\n"
 "    border-color: #1c7fe8;\n"
-"}"
+"}\n"
 "QPushButton:disabled {\n"
-"    background-color: #111;\n"
+"    background-color: #000;\n"
 "    border-color: #111;\n"
+"    color: #000;\n"
 "}")
-        self.button_e.setObjectName("button_e")
-        self.gridLayout.addWidget(self.button_e, 2, 0, 1, 1)
-        self.button_b = QtWidgets.QPushButton(self.centralwidget)
+        self.button_f.setObjectName("button_f")
+        self.gridLayout.addWidget(self.button_f, 4, 1, 1, 1)
+        self.button_b = QtWidgets.QPushButton(self.layoutWidget1)
+        self.button_b.setEnabled(True)
         self.button_b.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.button_b.setStyleSheet("QPushButton {\n"
 "    background-color: #555;\n"
@@ -178,15 +156,120 @@ class Ui_MainWindow(object):
 "QPushButton:hover {\n"
 "    background-color: #1c7fe8;\n"
 "    border-color: #1c7fe8;\n"
-"}"
+"}\n"
 "QPushButton:disabled {\n"
-"    background-color: #111;\n"
+"    background-color: #000;\n"
 "    border-color: #111;\n"
+"    color: #000;\n"
 "}")
         self.button_b.setCheckable(False)
         self.button_b.setObjectName("button_b")
         self.gridLayout.addWidget(self.button_b, 0, 1, 1, 1)
-        self.verticalLayout.addLayout(self.gridLayout)
+        self.button_a = QtWidgets.QPushButton(self.layoutWidget1)
+        self.button_a.setEnabled(True)
+        self.button_a.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.button_a.setStyleSheet("QPushButton {\n"
+"    background-color: #555;\n"
+"    border: 2px solid #666;\n"
+"    border-radius: 20;\n"
+"    color: #eee;\n"
+"    height: 40px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: #1c7fe8;\n"
+"    border-color: #1c7fe8;\n"
+"}\n"
+"QPushButton:disabled {\n"
+"    background-color: #000;\n"
+"    border-color: #111;\n"
+"    color: #000;\n"
+"}")
+        self.button_a.setObjectName("button_a")
+        self.gridLayout.addWidget(self.button_a, 0, 0, 1, 1)
+        self.button_d = QtWidgets.QPushButton(self.layoutWidget1)
+        self.button_d.setEnabled(True)
+        self.button_d.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.button_d.setStyleSheet("QPushButton {\n"
+"    background-color: #555;\n"
+"    border: 2px solid #666;\n"
+"    border-radius: 20;\n"
+"    color: #eee;\n"
+"    height: 40px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: #1c7fe8;\n"
+"    border-color: #1c7fe8;\n"
+"}\n"
+"QPushButton:disabled {\n"
+"    background-color: #000;\n"
+"    border-color: #111;\n"
+"    color: #000;\n"
+"}")
+        self.button_d.setObjectName("button_d")
+        self.gridLayout.addWidget(self.button_d, 3, 1, 1, 1)
+        self.button_g = QtWidgets.QPushButton(self.layoutWidget1)
+        self.button_g.setEnabled(True)
+        self.button_g.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.button_g.setStyleSheet("QPushButton {\n"
+"    background-color: #555;\n"
+"    border: 2px solid #666;\n"
+"    border-radius: 20;\n"
+"    color: #eee;\n"
+"    height: 40px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: #1c7fe8;\n"
+"    border-color: #1c7fe8;\n"
+"}\n"
+"QPushButton:disabled {\n"
+"    background-color: #000;\n"
+"    border-color: #111;\n"
+"    color: #000;\n"
+"}")
+        self.button_g.setObjectName("button_g")
+        self.gridLayout.addWidget(self.button_g, 5, 0, 1, 1)
+        self.button_c = QtWidgets.QPushButton(self.layoutWidget1)
+        self.button_c.setEnabled(True)
+        self.button_c.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.button_c.setStyleSheet("QPushButton {\n"
+"    background-color: #555;\n"
+"    border: 2px solid #666;\n"
+"    border-radius: 20;\n"
+"    color: #eee;\n"
+"    height: 40px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: #1c7fe8;\n"
+"    border-color: #1c7fe8;\n"
+"}\n"
+"QPushButton:disabled {\n"
+"    background-color: #000;\n"
+"    border-color: #111;\n"
+"    color: #000;\n"
+"}")
+        self.button_c.setObjectName("button_c")
+        self.gridLayout.addWidget(self.button_c, 3, 0, 1, 1)
+        self.button_e = QtWidgets.QPushButton(self.layoutWidget1)
+        self.button_e.setEnabled(True)
+        self.button_e.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.button_e.setStyleSheet("QPushButton {\n"
+"    background-color: #555;\n"
+"    border: 2px solid #666;\n"
+"    border-radius: 20;\n"
+"    color: #eee;\n"
+"    height: 40px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: #1c7fe8;\n"
+"    border-color: #1c7fe8;\n"
+"}\n"
+"QPushButton:disabled {\n"
+"    background-color: #000;\n"
+"    border-color: #111;\n"
+"    color: #000;\n"
+"}")
+        self.button_e.setObjectName("button_e")
+        self.gridLayout.addWidget(self.button_e, 4, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -195,15 +278,17 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.replay.setText(_translate("MainWindow", "Replay"))
+        self.exit.setText(_translate("MainWindow", "Exit"))
         self.label.setText(_translate("MainWindow", "TextLabel"))
-        self.button_g.setText(_translate("MainWindow", "PushButton"))
-        self.button_c.setText(_translate("MainWindow", "PushButton"))
+        self.button_h.setText(_translate("MainWindow", "PushButton"))
         self.button_f.setText(_translate("MainWindow", "PushButton"))
+        self.button_b.setText(_translate("MainWindow", "PushButton"))
         self.button_a.setText(_translate("MainWindow", "PushButton"))
         self.button_d.setText(_translate("MainWindow", "PushButton"))
-        self.button_h.setText(_translate("MainWindow", "PushButton"))
+        self.button_g.setText(_translate("MainWindow", "PushButton"))
+        self.button_c.setText(_translate("MainWindow", "PushButton"))
         self.button_e.setText(_translate("MainWindow", "PushButton"))
-        self.button_b.setText(_translate("MainWindow", "PushButton"))
 
 
 if __name__ == "__main__":

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>631</height>
+    <width>649</width>
+    <height>521</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,38 +19,146 @@
 	background: #000000;
 }</string>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QLabel" name="label">
-      <property name="styleSheet">
-       <string notr="true">QLabel {
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>180</y>
+      <width>631</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="replay">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: rgb(15, 151, 255);
+	border: 2px solid rgb(15, 151, 255);
+	border-radius: 20;
+	color: #eee;
+	height: 40px;
+	font-size: 14px;
+	font-weight: bold;
+}
+QPushButton:hover {
+	background-color: rgb(12, 129, 217);
+	border-color: rgb(12, 129, 217);
+}
+QPushButton:pressed {
+	background-color: rgb(12, 129, 217);
+	border-color: rgb(12, 129, 217);
+}
+QPushButton:disabled {
+    background-color: #000;
+    border-color: #111;
+	color: #000;
+}</string>
+       </property>
+       <property name="text">
+        <string>Replay</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="exit">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: rgb(255, 114, 14);
+	border: 2px solid rgb(240, 100, 12);
+	border-radius: 20;
+	color: #eee;
+	height: 40px;
+	font-size: 14px;
+	font-weight: bold;
+}
+QPushButton:hover {
+	background-color: rgb(235, 95, 8);
+	border-color: rgb(235, 95, 8);
+}
+QPushButton:pressed {
+	background-color: rgb(235, 95, 8);
+	border-color: rgb(235, 95, 8);
+}
+QPushButton:disabled {
+    background-color: #000;
+    border-color: #111;
+	color: #000;
+}</string>
+       </property>
+       <property name="text">
+        <string>Exit</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>9</y>
+      <width>631</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true">QLabel {
 	color: #fff;
 	font-size: 16px;
 }</string>
-      </property>
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-      <property name="margin">
-       <number>20</number>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="3" column="0">
-       <widget class="QPushButton" name="button_g">
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+       <property name="margin">
+        <number>20</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>250</y>
+      <width>631</width>
+      <height>261</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="5" column="1">
+      <widget class="QPushButton" name="button_h">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
 	background-color: #555;
 	border: 2px solid #666;
 	border-radius: 20;
@@ -60,20 +168,28 @@
 QPushButton:hover {
 	background-color: #1c7fe8;
 	border-color: #1c7fe8;
+}
+QPushButton:disabled {
+    background-color: #000;
+    border-color: #111;
+	color: #000;
 }</string>
-        </property>
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QPushButton" name="button_c">
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
+       </property>
+       <property name="text">
+        <string>PushButton</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QPushButton" name="button_f">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
 	background-color: #555;
 	border: 2px solid #666;
 	border-radius: 20;
@@ -83,20 +199,28 @@ QPushButton:hover {
 QPushButton:hover {
 	background-color: #1c7fe8;
 	border-color: #1c7fe8;
+}
+QPushButton:disabled {
+    background-color: #000;
+    border-color: #111;
+	color: #000;
 }</string>
-        </property>
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QPushButton" name="button_f">
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
+       </property>
+       <property name="text">
+        <string>PushButton</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="button_b">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
 	background-color: #555;
 	border: 2px solid #666;
 	border-radius: 20;
@@ -106,20 +230,31 @@ QPushButton:hover {
 QPushButton:hover {
 	background-color: #1c7fe8;
 	border-color: #1c7fe8;
+}
+QPushButton:disabled {
+    background-color: #000;
+    border-color: #111;
+	color: #000;
 }</string>
-        </property>
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QPushButton" name="button_a">
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
+       </property>
+       <property name="text">
+        <string>PushButton</string>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QPushButton" name="button_a">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
 	background-color: #555;
 	border: 2px solid #666;
 	border-radius: 20;
@@ -129,20 +264,28 @@ QPushButton:hover {
 QPushButton:hover {
 	background-color: #1c7fe8;
 	border-color: #1c7fe8;
+}
+QPushButton:disabled {
+    background-color: #000;
+    border-color: #111;
+	color: #000;
 }</string>
-        </property>
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QPushButton" name="button_d">
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
+       </property>
+       <property name="text">
+        <string>PushButton</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QPushButton" name="button_d">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
 	background-color: #555;
 	border: 2px solid #666;
 	border-radius: 20;
@@ -152,20 +295,28 @@ QPushButton:hover {
 QPushButton:hover {
 	background-color: #1c7fe8;
 	border-color: #1c7fe8;
+}
+QPushButton:disabled {
+    background-color: #000;
+    border-color: #111;
+	color: #000;
 }</string>
-        </property>
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="QPushButton" name="button_h">
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
+       </property>
+       <property name="text">
+        <string>PushButton</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QPushButton" name="button_g">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
 	background-color: #555;
 	border: 2px solid #666;
 	border-radius: 20;
@@ -175,20 +326,28 @@ QPushButton:hover {
 QPushButton:hover {
 	background-color: #1c7fe8;
 	border-color: #1c7fe8;
+}
+QPushButton:disabled {
+    background-color: #000;
+    border-color: #111;
+	color: #000;
 }</string>
-        </property>
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QPushButton" name="button_e">
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
+       </property>
+       <property name="text">
+        <string>PushButton</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QPushButton" name="button_c">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
 	background-color: #555;
 	border: 2px solid #666;
 	border-radius: 20;
@@ -198,20 +357,28 @@ QPushButton:hover {
 QPushButton:hover {
 	background-color: #1c7fe8;
 	border-color: #1c7fe8;
+}
+QPushButton:disabled {
+    background-color: #000;
+    border-color: #111;
+	color: #000;
 }</string>
-        </property>
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QPushButton" name="button_b">
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
+       </property>
+       <property name="text">
+        <string>PushButton</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QPushButton" name="button_e">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
 	background-color: #555;
 	border: 2px solid #666;
 	border-radius: 20;
@@ -221,19 +388,20 @@ QPushButton:hover {
 QPushButton:hover {
 	background-color: #1c7fe8;
 	border-color: #1c7fe8;
+}
+QPushButton:disabled {
+    background-color: #000;
+    border-color: #111;
+	color: #000;
 }</string>
-        </property>
-        <property name="text">
-         <string>PushButton</string>
-        </property>
-        <property name="checkable">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
+       </property>
+       <property name="text">
+        <string>PushButton</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
  </widget>
  <resources/>
