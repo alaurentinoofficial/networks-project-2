@@ -32,7 +32,7 @@ def await_reponse(socket, textbox, buttons, main):
                         main.exit.setEnabled(True)
                         main.replay.setEnabled(True)
                         main.replay.setText("Try again")
-                    if result.get("code") == codes.NOT_ALLOWED:
+                    if result.get("code") == codes.IS_RUNNING:
                         textbox.setText("\nThe gamming is running!\nWait some minutes and try again!")
                         main.exit.setEnabled(True)
                         main.replay.setEnabled(True)
@@ -94,7 +94,7 @@ def await_reponse(socket, textbox, buttons, main):
 def on_click(socket, answer, buttons, label):
     def wrapped():
         obj = {"body": {"answer": answer}, "method": "ADD", "route": "/answer"}
-        socket.sendto(json.dumps(obj).encode(), ("localhost", 8081))
+        socket.sendto(json.dumps(obj).encode(), ("localhost", 9000))
 
         for k, v in buttons.items():
             v.setEnabled(False)
@@ -166,7 +166,7 @@ if __name__ == '__main__':
             payload = {"body": {"nickname": nickname}, "method": "ADD", "route": "/register"}
             msg = json.dumps(payload).encode()
             
-            sock.sendto(msg, ("localhost", 8081))
+            sock.sendto(msg, ("localhost", 9000))
             try:
                 MainWindow.show()
                 sys.exit(app.exec_())
