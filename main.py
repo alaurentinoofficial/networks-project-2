@@ -13,7 +13,7 @@ if __name__ == "__main__":
         questions.append(Question(**obj))
 
     server = ServerUDP(('localhost', 9000,))
-    room = Room(socket=server.server_socket,questions=questions, max_players=1)
+    room = Room(socket=server.server_socket,questions=questions, max_players=5)
 
     try:
         server.router.add("/register", room.register, "ADD")
